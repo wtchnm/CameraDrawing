@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@custom-variant slider-thumb {
+	&::-webkit-slider-thumb {
+		@slot;
+	}
+}
