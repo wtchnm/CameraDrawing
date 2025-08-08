@@ -101,23 +101,27 @@ export function Image({src, opacity}: ImageProperties) {
 	}
 
 	return (
-		<div
-			class='overflow-hidden relative w-full h-full cursor-grab active:cursor-grabbing select-none'
-			onWheel={onWheel}
+		<button
+			aria-label='Activate pannable and zoomable image viewer'
+			class='relative h-full w-full cursor-grab select-none appearance-none overflow-hidden active:cursor-grabbing'
 			onMouseDown={onMouseDown}
-			onTouchStart={onTouchStart}
 			onMouseMove={onMouseMove}
-			onTouchMove={onTouchMove}
 			onMouseUp={onMouseUpTouchEnd}
 			onTouchEnd={onMouseUpTouchEnd}
+			onTouchMove={onTouchMove}
+			onTouchStart={onTouchStart}
+			onWheel={onWheel}
+			type='button'
 		>
 			<img
-				src={src()}
-				class='absolute top-1/2 left-1/2 pointer-events-none'
-				style={{transform: calculateTransform(), opacity: opacity()}}
-				draggable={false}
 				alt=''
+				class='pointer-events-none absolute top-1/2 left-1/2'
+				draggable={false}
+				height='100%'
+				src={src()}
+				style={{transform: calculateTransform(), opacity: opacity()}}
+				width='100%'
 			/>
-		</div>
+		</button>
 	)
 }

@@ -1,11 +1,11 @@
 import {
+	createEffect,
+	createResource,
+	createSignal,
 	type JSX,
 	Match,
 	Show,
-	Switch,
-	createEffect,
-	createResource,
-	createSignal
+	Switch
 } from 'solid-js'
 import {Image} from './Image'
 
@@ -21,6 +21,7 @@ function requestCameraAccess() {
 }
 
 export function App() {
+	// biome-ignore lint/nursery/noUnassignedVariables: assigned by ref
 	let videoRef!: HTMLVideoElement
 	const [image, setImage] = createSignal<string>()
 	const [opacity, setOpacity] = createSignal<number>(0.3)
@@ -50,50 +51,50 @@ export function App() {
 	}
 
 	return (
-		<main class='flex h-dvh items-center justify-center text-white text-xl bg-black'>
+		<main class='flex h-dvh items-center justify-center bg-black text-white text-xl'>
 			<Switch fallback={<p>Requesting camera access...</p>}>
 				<Match when={mediaStream.error}>
 					<p>You must grant camera access to continue.</p>
 				</Match>
 				<Match when={mediaStream.latest}>
 					<video
-						playsinline={true}
 						autoplay={true}
-						muted={true}
-						ref={videoRef}
 						class='h-full'
+						muted={true}
+						playsinline={true}
+						ref={videoRef}
 					/>
-					<div class='z-10 absolute inset-0 h-full flex flex-col items-center justify-end gap-1'>
+					<div class='absolute inset-0 z-10 flex h-full flex-col items-center justify-end gap-1'>
 						<Show when={image()}>
-							{src => <Image src={src} opacity={opacity} />}
+							{src => <Image opacity={opacity} src={src} />}
 						</Show>
-						<div class='bg-black w-full flex justify-center items-center gap-4 py-2'>
+						<div class='flex w-full items-center justify-center gap-4 bg-black py-2'>
 							<label
+								class='rounded-md bg-white px-4 py-1 text-base text-black'
 								for='file'
-								class='py-1 text-base px-4 bg-white text-black rounded-md'
 							>
 								Choose file
 							</label>
 							<input
-								type='file'
-								id='file'
 								accept='image/*'
 								class='hidden file:hidden'
+								id='file'
 								onChange={onFileChange}
+								type='file'
 							/>
-							<div class='flex flex-col gap-1 justify-center'>
-								<label for='opacity' class='text-sm'>
+							<div class='flex flex-col justify-center gap-1'>
+								<label class='text-sm' for='opacity'>
 									Opacity
 								</label>
 								<input
+									class='slider-thumb:size-4 h-1.5 w-32 cursor-pointer appearance-none rounded-lg bg-white slider-thumb:bg-slate-400'
 									id='opacity'
-									type='range'
-									min={0}
 									max={1}
-									step={0.05}
-									value={opacity()}
+									min={0}
 									onInput={onOpacityInput}
-									class='h-1.5 bg-white w-32 rounded-lg appearance-none cursor-pointer slider-thumb:bg-slate-400 slider-thumb:size-4'
+									step={0.05}
+									type='range'
+									value={opacity()}
 								/>
 							</div>
 						</div>
