@@ -21,7 +21,7 @@ function requestCameraAccess() {
 }
 
 export function App() {
-	// biome-ignore lint/nursery/noUnassignedVariables: assigned by ref
+	// biome-ignore lint/suspicious/noUnassignedVariables: assigned by ref
 	let videoRef!: HTMLVideoElement
 	const [image, setImage] = createSignal<string>()
 	const [opacity, setOpacity] = createSignal<number>(0.3)
