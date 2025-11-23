@@ -91,9 +91,6 @@
 							}
 						}
 					},
-					"suspicious": {
-						"noUnknownAtRules": "off"
-					},
 					"complexity": {
 						"noExcessiveLinesPerFunction": {
 							"level": "error",
