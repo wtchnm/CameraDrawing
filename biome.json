@@ -11,6 +11,11 @@
 		},
 		"enabled": true
 	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
 	"formatter": {
 		"enabled": true,
 		"indentStyle": "tab"
@@ -55,16 +60,13 @@
 					"nursery": {
 						"useExplicitType": "off",
 						"noUnresolvedImports": "off",
-						"noSecrets": {
-							"level": "error",
-							"options": {
-								"entropyThreshold": 100
-							}
-						},
 						"useSortedClasses": {
 							"level": "error",
 							"fix": "safe"
-						}
+						},
+						"noUnknownAttribute": "off",
+						"noJsxLiterals": "off",
+						"useQwikValidLexicalScope": "off"
 					},
 					"performance": {
 						"noImgElement": "off"
@@ -97,6 +99,14 @@
 							"level": "error",
 							"options": {
 								"maxLines": 100
+							}
+						}
+					},
+					"security": {
+						"noSecrets": {
+							"level": "error",
+							"options": {
+								"entropyThreshold": 100
 							}
 						}
 					}
