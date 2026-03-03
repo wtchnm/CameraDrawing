@@ -55,18 +55,18 @@
 				"rules": {
 					"correctness": {
 						"useImportExtensions": "off",
-						"useUniqueElementIds": "off"
+						"useUniqueElementIds": "off",
+						"useQwikValidLexicalScope": "off"
 					},
 					"nursery": {
 						"useExplicitType": "off",
-						"noUnresolvedImports": "off",
 						"useSortedClasses": {
 							"level": "error",
 							"fix": "safe"
 						},
 						"noUnknownAttribute": "off",
-						"noJsxLiterals": "off",
-						"useQwikValidLexicalScope": "off"
+						"noJsxPropsBind": "off",
+						"noTernary": "off"
 					},
 					"performance": {
 						"noImgElement": "off"
@@ -89,7 +89,8 @@
 								"requireAscii": true,
 								"filenameCases": ["camelCase", "kebab-case", "PascalCase"]
 							}
-						}
+						},
+						"noJsxLiterals": "off"
 					},
 					"complexity": {
 						"noExcessiveLinesPerFunction": {

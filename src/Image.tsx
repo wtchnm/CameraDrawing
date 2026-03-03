@@ -46,13 +46,12 @@ export function Image({src, opacity}: ImageProperties) {
 
 	function onTouchStart(e: TouchEvent) {
 		if (e.touches.length === 1) {
-			const touch = e.touches[0]
+			const [touch] = e.touches
 			if (touch) {
 				startDrag(touch.clientX, touch.clientY)
 			}
 		} else if (e.touches.length === 2) {
-			const touch1 = e.touches[0]
-			const touch2 = e.touches[1]
+			const [touch1, touch2] = e.touches
 			if (touch1 && touch2) {
 				const dist = Math.hypot(
 					touch1.clientX - touch2.clientX,
@@ -70,13 +69,12 @@ export function Image({src, opacity}: ImageProperties) {
 	function onTouchMove(e: TouchEvent) {
 		e.preventDefault()
 		if (e.touches.length === 1) {
-			const touch = e.touches[0]
+			const [touch] = e.touches
 			if (touch) {
 				drag(touch.clientX, touch.clientY)
 			}
 		} else if (e.touches.length === 2) {
-			const touch1 = e.touches[0]
-			const touch2 = e.touches[1]
+			const [touch1, touch2] = e.touches
 			if (touch1 && touch2) {
 				const dist = Math.hypot(
 					touch1.clientX - touch2.clientX,
