@@ -117,6 +117,7 @@ export function Image({src, opacity}: ImageProperties) {
 				draggable={false}
 				height='100%'
 				src={src()}
+				// biome-ignore lint/nursery/noInlineStyles: frequently changing styles
 				style={{transform: calculateTransform(), opacity: opacity()}}
 				width='100%'
 			/>
