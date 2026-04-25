@@ -13,13 +13,13 @@
 		"solid-js": "1.9.12"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.9",
-		"@tailwindcss/vite": "4.2.2",
+		"@biomejs/biome": "2.4.13",
+		"@tailwindcss/vite": "4.2.4",
 		"@vitejs/plugin-basic-ssl": "2.3.0",
-		"tailwindcss": "4.2.2",
-		"typescript": "6.0.2",
-		"vite": "8.0.3",
-		"vite-plugin-solid": "2.11.11"
+		"tailwindcss": "4.2.4",
+		"typescript": "6.0.3",
+		"vite": "8.0.10",
+		"vite-plugin-solid": "2.11.12"
 	},
 	"trustedDependencies": [
 		"@biomejs/biome",
